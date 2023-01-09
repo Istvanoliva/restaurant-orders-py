@@ -32,7 +32,14 @@ class TrackOrders:
         return dishes.difference(ordereds)
 
     def get_days_never_visited_per_customer(self, customer):
-        pass
+        days = set()
+        served_days = set()
+
+        for order in self.orders:
+            days.add(order[2])
+            if order[0] == customer:
+                served_days.add(order[2])
+        return days.difference(served_days)
 
     def get_busiest_day(self):
         pass
