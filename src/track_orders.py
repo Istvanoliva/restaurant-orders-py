@@ -10,7 +10,16 @@ class TrackOrders:
         self.orders.append([customer, order, day])
 
     def get_most_ordered_dish_per_customer(self, customer):
-        pass
+        favorite_dish = dict()
+
+        for order in self.orders:
+            if (order[0] == customer):
+                if (order[1] in favorite_dish):
+                    favorite_dish[order[1]] += 1
+                else:
+                    favorite_dish[order[1]] = 1
+
+        return max(favorite_dish, key=favorite_dish.get)
 
     def get_never_ordered_per_customer(self, customer):
         pass
