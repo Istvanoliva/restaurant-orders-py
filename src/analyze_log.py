@@ -60,5 +60,18 @@ def dish_never_requested(data):
     )
     return dish_never_requested
 
+
+def days_that_customer_never_went(data):
+    unique_days = get_unique_days(data)
+
+    joao_dishes = [food for food in data if food[0] == 'joao']
+
+    joao_food_days = [joao_food[2] for joao_food in joao_dishes]
+
+    return set([
+        day for day in unique_days if day not in joao_food_days
+    ])
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
