@@ -19,5 +19,10 @@ def write_file(content, path_to_file):
         raise ValueError
 
 
+def get_unique_days(data):
+    days = [row[2] for row in data]
+    return list(set(days))
+
+
 def analyze_log(path_to_file):
     raise NotImplementedError
