@@ -53,4 +53,12 @@ class TrackOrders:
         return max(days, key=days.get)
 
     def get_least_busy_day(self):
-        pass
+        days = dict()
+
+        for order in self.orders:
+            if order[2] not in days:
+                days[order[2]] = 1
+            else:
+                days[order[2]] += 1
+
+        return min(days, key=days.get)
