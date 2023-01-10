@@ -24,5 +24,9 @@ def get_unique_days(data):
     return list(set(days))
 
 
+def get_unique_dish(data):
+    data_dishes = [element[1] for element in data]
+    return list(set(data_dishes))
+
 def analyze_log(path_to_file):
     raise NotImplementedError
