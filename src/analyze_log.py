@@ -74,4 +74,10 @@ def days_that_customer_never_went(data):
 
 
 def analyze_log(path_to_file):
-    raise NotImplementedError
+    data = read_file(path_to_file)
+
+    with open('data/mkt_campaign.txt', 'w') as file:
+        file.write(str(favorite_dish(data)) + '\n')
+        file.write(str(count_requested_hamburguer_by_arnaldo(data)) + '\n')
+        file.write(str(dish_never_requested(data)) + '\n')
+        file.write(str(days_that_customer_never_went(data)))
