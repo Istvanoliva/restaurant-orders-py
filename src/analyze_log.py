@@ -28,5 +28,18 @@ def get_unique_dish(data):
     data_dishes = [element[1] for element in data]
     return list(set(data_dishes))
 
+
+def count_dish_by_customer(data, person):
+    dish_count = dict()
+
+    person_info = [row for row in data if row[0] == person]
+    for row in person_info:
+        if row[1] in dish_count:
+            dish_count[row[1]] += 1
+        else:
+            dish_count[row[1]] = 1
+
+    return dish_count
+
 def analyze_log(path_to_file):
     raise NotImplementedError
