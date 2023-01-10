@@ -41,5 +41,10 @@ def count_dish_by_customer(data, person):
 
     return dish_count
 
+
+def favorite_dish(data):
+    dish_count = count_dish_by_customer(data, 'maria')
+    return max(dish_count, key=dish_count.get)
+
 def analyze_log(path_to_file):
     raise NotImplementedError
