@@ -51,5 +51,14 @@ def count_requested_hamburguer_by_arnaldo(data):
     dish_count = count_dish_by_customer(data, 'arnaldo')
     return dish_count['hamburguer']
 
+
+def dish_never_requested(data):
+    unique_foods = get_unique_dish(data)
+    joao_food_count = count_dish_by_customer(data, 'joao')
+    dish_never_requested = set(
+      [food for food in unique_foods if food not in joao_food_count.keys()]
+    )
+    return dish_never_requested
+
 def analyze_log(path_to_file):
     raise NotImplementedError
